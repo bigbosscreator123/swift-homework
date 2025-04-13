@@ -1,10 +1,12 @@
 #!/bin/bash
-# This script creates chapter subdirectories from chapter1 to chapter10
-# and adds an empty README.md file in each
-
-for i in {1..10}; do
-  mkdir -p "chapter$i"       # Creates directory chapter1, chapter2, ... chapter10
-  touch "chapter$i/README.md" # Creates an empty README.md file in that directory
+NUM_CHAPTERS=18
+REPO_DIR="."
+for i in $(seq -w 1 $NUM_CHAPTERS); do
+    CHAPTER_DIR="$REPO_DIR/chapter$i/teach"
+    mkdir -p "$CHAPTER_DIR"
+    touch "$CHAPTER_DIR/README.md"
 done
 
-echo "Chapters 1 through 10 created with a blank README.md file each."
+echo "✅ Done! Created $NUM_CHAPTERS chapters with teach/README.md files."
+
+
